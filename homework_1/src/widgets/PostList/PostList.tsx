@@ -7,17 +7,15 @@ interface PostListProps {
 
 const PostList = ({ posts }: PostListProps) => {
   return (
-    <>
-      <ul className="post-list">
-        {posts.map((post) => {
-          return (
-            <li key={post.id}>
-              <PostCard post={post} />
-            </li>
-          );
-        })}
-      </ul>
-    </>
+    <ul className="post-list">
+      {posts.map((post) => {
+        return (
+          <li key={post.id}>
+            <PostCard post={post} />
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 
