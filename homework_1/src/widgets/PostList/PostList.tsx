@@ -1,6 +1,8 @@
 import PostCard from "../../entities/post/ui/PostCard";
 import type { PostType } from "../../shared/layouts/MainLayout";
 
+import "./PostList.css";
+
 interface PostListProps {
   posts: PostType[];
 }
