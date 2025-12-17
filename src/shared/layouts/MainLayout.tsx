@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import Header from "../../widgets/LayoutHeader/Header";
-import Footer from "../../widgets/LayoutFooter/Footer";
-import PostList from "../../widgets/PostList/PostList";
+import Header from "@/widgets/LayoutHeader/Header";
+import Footer from "@/widgets/LayoutFooter/Footer";
+import PostList from "@/widgets/PostList/PostList";
 
 import "./MainLayout.css";
 

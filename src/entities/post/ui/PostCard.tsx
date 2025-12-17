@@ -1,4 +1,4 @@
-import type { PostType } from "../../../shared/layouts/MainLayout";
+import type { PostType } from "@/shared/layouts/MainLayout";
 
 interface PostCardProps {
   post: PostType;
