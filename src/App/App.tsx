@@ -1,11 +1,11 @@
-import MainLayout from "../shared/layouts/MainLayout";
+import PostPage from "@/pages/PostPage/PostPage";
 
 import "./App.css";
 
 const App = () => {
   return (
     <>
-      <MainLayout />
+      <PostPage />
     </>
   );
 };

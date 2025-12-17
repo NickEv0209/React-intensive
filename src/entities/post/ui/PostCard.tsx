@@ -1,14 +1,15 @@
-import type { PostType } from "@/shared/layouts/MainLayout";
+import type { PostType } from "../model/types";
 
+import styles from "./PostCard.module.css";
 interface PostCardProps {
   post: PostType;
 }
 
 const PostCard = ({ post }: PostCardProps) => {
   return (
-    <div className="post-card">
-      <h3>{post.title}</h3>
-      <p>{post.description}</p>
+    <div className={styles.postCard}>
+      <h3 className={styles.postTitle}>{post.title}</h3>
+      <p className={styles.postDescription}>{post.description}</p>
     </div>
   );
 };
