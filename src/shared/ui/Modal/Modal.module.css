@@ -1,0 +1,47 @@
+.backLayer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0000006d;
+  backdrop-filter: blur(5px);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  width: 500px;
+  min-height: 200px;
+  gap: 15px;
+  box-shadow: 0 0 50px #00000093;
+  border: 1px solid var(--title-color);
+  animation: fade .2s ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.modalTitle {
+  margin-bottom: 15px;
+  font-size: 25px;
+  color: var(--title-color);
+}
+
+.modalDescription {
+  color: var(--description-color)
+}
+
+.btn {
+  align-self: flex-end;
+  justify-self: end;
+}
