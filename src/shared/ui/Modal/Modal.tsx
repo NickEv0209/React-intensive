@@ -2,6 +2,9 @@ import { createPortal } from "react-dom";
 
 import styles from "./Modal.module.css";
 import Button from "../Button/Button";
+import { useEffect } from "react";
+
+const ESC = "Escape";
 
 interface ModalProps {
   title: string;
@@ -11,6 +14,20 @@ interface ModalProps {
 }
 
 const Modal = ({ title, description, isOpen, onClose }: ModalProps) => {
+  useEffect(() => {
+    const handlePressEsc = (e: KeyboardEvent) => {
+      if (e.key === ESC) {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keyup", handlePressEsc);
+
+    return () => {
+      document.removeEventListener("keyup", handlePressEsc);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const content = (
