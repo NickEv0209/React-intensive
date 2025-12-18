@@ -7,6 +7,15 @@
   --button-hover-color: #00000030;
 }
 
+[data-theme='dark'] {
+  --bg-color: #2a2a2a;
+  --primary-color: #639482;
+  --secondary-color: #304c5a;
+  --font-color: #e7e7e7;
+  --inverse-font-color: #fff;
+  --button-hover-color: #00000030;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -18,7 +18,7 @@
   min-height: 200px;
   gap: 15px;
   box-shadow: 0 0 50px #00000093;
-  border: 1px solid var(--title-color);
+  border: 1px solid var(--font-color);
   animation: fade .2s ease-in-out;
 }
 
@@ -34,11 +34,11 @@
 .modalTitle {
   margin-bottom: 15px;
   font-size: 25px;
-  color: var(--title-color);
+  color: var(--font-color);
 }
 
 .modalDescription {
-  color: var(--description-color)
+  color: var(--font-color)
 }
 
 .btn {
