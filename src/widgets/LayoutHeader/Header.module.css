@@ -4,9 +4,9 @@
   align-items: center;
   width: 100vw;
   height: 100px;
-  background-color: var(--main-color);
+  background-color: var(--primary-color);
 }
 
 .headerTitle {
-  color: var(--light-font-color);
+  color: var(--inverse-font-color);
 }

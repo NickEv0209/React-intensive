@@ -1,11 +1,9 @@
 :root {
-  --main-color: #008a43;
-  --secondary-color: #282828;
-  --border-color: #bebebe;
-  --font-color: #202020;
-  --light-font-color: #ffffff;
-  --title-color: #000000;
-  --description-color: #2e2e2e;
+  --bg-color: #fff;
+  --primary-color: #639482;
+  --secondary-color: #304c5a;
+  --font-color: #272727;
+  --inverse-font-color: #fff;
 }
 
 * {
@@ -18,4 +16,5 @@
 
 body {
   height: 100vh;
+  background-color: var(--bg-color)
 }

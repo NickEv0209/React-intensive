@@ -2,15 +2,15 @@
   width: 500px;
   height: fit-content;
   padding: 20px;
-  border: 3px solid var(--border-color);
+  border: 2px solid #b2b2b2;
   border-radius: 10px;
 }
 
 .postTitle {
   font-size: 20px;
-  color: var(--title-color);
+  color: var(--font-color);
 }
 
 .postDescription {
-  color: var(--description-color);
+  color: var(--font-color);
 }
