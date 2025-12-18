@@ -4,6 +4,7 @@
   --secondary-color: #304c5a;
   --font-color: #272727;
   --inverse-font-color: #fff;
+  --button-hover-color: #00000030;
 }
 
 * {
