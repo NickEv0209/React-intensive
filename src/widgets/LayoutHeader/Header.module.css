@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+  background-color: var(--main-color);
+}
+
+.headerTitle {
+  color: var(--light-font-color);
+}
