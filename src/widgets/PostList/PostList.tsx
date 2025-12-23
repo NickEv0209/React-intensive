@@ -1,33 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import PostCard from "@/entities/post/ui/PostCard";
 import type { PostType } from "@/entities/post/model/types";
 
 import styles from "./PostList.module.css";
+import axios from "axios";
 
 const PostList = () => {
-  const [posts] = useState<PostType[]>([
-    {
-      id: 1,
-      title: "Title",
-      description: "Description",
-    },
-    {
-      id: 2,
-      title: "Title",
-      description: "Description",
-    },
-    {
-      id: 3,
-      title: "Title",
-      description: "Description",
-    },
-    {
-      id: 4,
-      title: "Title",
-      description: "Description",
-    },
-  ]);
+  const [posts, setPosts] = useState<PostType[]>([]);
+
+  useEffect(() => {
+    axios
+      .get("/api/posts")
+      .then((res) => setPosts(res.data))
+      .catch((err) => console.error("Ошибка запроса: " + err));
+  }, []);
 
   return (
     <div className={styles.postList}>

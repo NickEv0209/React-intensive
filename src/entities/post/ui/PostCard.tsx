@@ -18,7 +18,7 @@ const PostCard = ({ post }: PostCardProps) => {
   return (
     <div className={styles.postCard}>
       <h3 className={styles.postTitle}>{post.title}</h3>
-      <p className={styles.postDescription}>{post.description}</p>
+      <p className={styles.postDescription}>{post.body}</p>
       <Button
         className={
           isLike ? `${styles.btn} ${styles.likedBtn}` : `${styles.btn}`

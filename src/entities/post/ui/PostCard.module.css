@@ -1,6 +1,7 @@
 .postCard {
   display: flex;
   flex-direction: column;
+  gap: 25px;
   width: 500px;
   height: fit-content;
   padding: 20px;
@@ -10,7 +11,7 @@
 
 .postTitle {
   font-size: 20px;
-  color: var(--font-color);
+  color: color-mix(in srgb, var(--font-color), var(--primary-color) 80%)
 }
 
 .postDescription {
