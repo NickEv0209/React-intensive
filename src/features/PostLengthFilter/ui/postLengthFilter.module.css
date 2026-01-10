@@ -1,0 +1,10 @@
+.selectWrapper {
+  width: 100%;
+  align-self: flex-end;
+  padding: 10px 10%;
+  background-color: color-mix(in srgb, var(--primary-color), #000 50%);
+}
+
+.select {
+  padding: 10px;
+}
