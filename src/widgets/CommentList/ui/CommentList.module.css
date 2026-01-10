@@ -1,0 +1,41 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 20px;
+  color: var(--font-color);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background-color: #00000014;
+  border-radius: 5px;
+}
+
+.author {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.container {
+  color: var(--font-color);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.empty {
+  opacity: .7;
+  color: var(--font-color);
+}
+
+.btn {
+  background-color: gray;
+}

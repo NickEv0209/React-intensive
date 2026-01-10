@@ -1,32 +1,30 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
-import Button from "@/shared/ui/Button/Button";
+import { CommentList } from "@/widgets/CommentList";
+
 import type { PostType } from "../model/types";
 
 import styles from "./PostCard.module.css";
+
 interface PostCardProps {
   post: PostType;
 }
 
 const PostCard = ({ post }: PostCardProps) => {
-  const [isLike, setIsLike] = useState(false);
+  const [comments, setComments] = useState([]);
 
-  const toggleLike = () => {
-    setIsLike(!isLike);
-  };
+  useEffect(() => {
+    axios
+      .get(`/api/posts/${post.id}/comments`)
+      .then((res) => setComments(res.data));
+  }, []);
 
   return (
     <div className={styles.postCard}>
       <h3 className={styles.postTitle}>{post.title}</h3>
       <p className={styles.postDescription}>{post.body}</p>
-      <Button
-        className={
-          isLike ? `${styles.btn} ${styles.likedBtn}` : `${styles.btn}`
-        }
-        onClick={toggleLike}
-      >
-        {isLike ? "♥︎" : "♡"}
-      </Button>
+      <CommentList comments={comments} />
     </div>
   );
 };
