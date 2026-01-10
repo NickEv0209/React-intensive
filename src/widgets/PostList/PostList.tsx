@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 import PostCard from "@/entities/post/ui/PostCard";
 import type { PostType } from "@/entities/post/model/types";
@@ -11,17 +11,15 @@ interface PostListProps {
 }
 
 const PostList = ({ posts }: PostListProps) => {
-  return (
-    <div className={styles.postList}>
-      {posts.map((post) => {
-        return (
-          <React.Fragment key={post.id}>
-            <PostCard post={post} />
-          </React.Fragment>
-        );
-      })}
-    </div>
-  );
+  const memoizedPostCards = useMemo(() => {
+    return posts.map((post) => (
+      <React.Fragment key={post.id}>
+        <PostCard post={post} />
+      </React.Fragment>
+    ));
+  }, [posts]);
+
+  return <div className={styles.postList}>{memoizedPostCards}</div>;
 };
 
 export const PostListWithLoading = withLoading(PostList);
