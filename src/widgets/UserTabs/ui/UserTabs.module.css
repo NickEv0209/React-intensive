@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--inverse-font-color);
+}
+
+.link,
+.activeLink {
+  text-decoration: none;
+  color: var(--inverse-font-colors);
+}
+
+.activeLink {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: color-mix(in srgb, var(--primary-color), #000 20%);
+}
