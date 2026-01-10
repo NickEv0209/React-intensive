@@ -1,6 +1,5 @@
-.mainLayout {
-  height: 100vh;
+.content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 }

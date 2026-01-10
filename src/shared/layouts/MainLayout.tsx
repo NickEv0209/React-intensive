@@ -4,14 +4,14 @@ import Footer from "@/widgets/LayoutFooter/Footer";
 import styles from "./MainLayout.module.css";
 
 interface MainLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-const MainLayout = ({children}: MainLayoutProps) => {
+const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <div className={styles.mainLayout}>
       <Header />
-      {children}
+      <div className={styles.content}>{children}</div>
       <Footer />
     </div>
   );

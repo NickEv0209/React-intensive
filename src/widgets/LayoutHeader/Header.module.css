@@ -1,4 +1,6 @@
 .header {
+  position: sticky;
+  inset: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -6,6 +8,7 @@
   width: 100vw;
   height: 100px;
   background-color: var(--primary-color);
+  z-index: 1000;
 }
 
 .headerTitle {
