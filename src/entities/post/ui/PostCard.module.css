@@ -32,3 +32,8 @@
 .likedBtn {
   color: var(--primary-color);
 }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}

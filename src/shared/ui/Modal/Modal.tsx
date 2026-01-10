@@ -1,48 +1,40 @@
+import { createContext } from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./Modal.module.css";
-import Button from "../Button/Button";
-import { useEffect } from "react";
 
-const ESC = "Escape";
-
-interface ModalProps {
-  title: string;
-  description: string;
-  isOpen: boolean;
+interface ModalContextType {
   onClose: () => void;
 }
 
-const Modal = ({ title, description, isOpen, onClose }: ModalProps) => {
-  useEffect(() => {
-    const handlePressEsc = (e: KeyboardEvent) => {
-      if (e.key === ESC) {
-        onClose();
-      }
-    };
+const ModalContext = createContext<ModalContextType | undefined>(undefined);
 
-    document.addEventListener("keyup", handlePressEsc);
+export const useModalContext = () => {
+  const context = ModalContext;
+  if (!context) {
+    throw Error("Контекста нет");
+  }
+  return context;
+};
 
-    return () => {
-      document.removeEventListener("keyup", handlePressEsc);
-    };
-  }, [isOpen, onClose]);
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode;
+}
 
+export const ModalComponent = ({ isOpen, onClose, children }: ModalProps) => {
   if (!isOpen) return null;
 
   const content = (
-    <div className={styles.backLayer} onClick={onClose}>
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-        <h3 className={styles.modalTitle}>{title}</h3>
-        <p className={styles.modalDescription}>{description}</p>
-        <Button onClick={onClose} className={styles.btn}>
-          Закрыть
-        </Button>
+    <ModalContext.Provider value={{ onClose }}>
+      <div className={styles.backLayer} onClick={onClose}>
+        <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+          {children}
+        </div>
       </div>
-    </div>
+    </ModalContext.Provider>
   );
 
   return createPortal(content, document.body);
 };
-
-export default Modal;
