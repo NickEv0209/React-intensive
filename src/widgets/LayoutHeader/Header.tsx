@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import Button from "@/shared/ui/Button/Button";
-import Modal from "@/shared/ui/Modal/Modal";
+import { Modal } from "@/shared/ui/Modal";
 import ThemeSwitcher from "@/features/ThemeSwitcher/ui/ThemSwitcher";
 
 import styles from "./Header.module.css";
@@ -20,12 +20,15 @@ const Header = () => {
         <Button onClick={handleToggleModal}>О проекте</Button>
         <ThemeSwitcher />
       </div>
-      <Modal
-        title="О проекте"
-        description="Учебный проект с простой отрисовкой постов"
-        isOpen={isOpen}
-        onClose={handleToggleModal}
-      />
+      <Modal isOpen={isOpen} onClose={handleToggleModal}>
+        <Modal.Header title={'О проекте'}/>
+        <Modal.Body>
+          <p>Учебный проект с отрисовкой постов</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleToggleModal}>Закрыть</Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

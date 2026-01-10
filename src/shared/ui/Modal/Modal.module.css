@@ -11,6 +11,7 @@
 .modal {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding: 25px;
   background-color: var(--bg-color);
   border-radius: 10px;
@@ -37,11 +38,10 @@
   color: var(--font-color);
 }
 
-.modalDescription {
+.body {
   color: var(--font-color)
 }
 
-.btn {
+.footer {
   align-self: flex-end;
-  justify-self: end;
 }
