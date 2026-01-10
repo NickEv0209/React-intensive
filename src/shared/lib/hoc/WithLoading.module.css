@@ -1,0 +1,24 @@
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.loadingCircle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid var(--primary-color);
+  border-left: 5px solid #00000000;
+  animation: circle 0.5s linear infinite;
+}
+
+@keyframes circle {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
