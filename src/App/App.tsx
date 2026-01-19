@@ -1,12 +1,17 @@
-import PostPage from "@/pages/PostPage/PostPage";
+import { BrowserRouter } from "react-router-dom";
+
+import { ThemeProvider } from "@/shared/lib/theme";
+
+import AppRouter from "./providers/router/ui/AppRouter";
 
 import "./App.css";
-import { ThemeProvider } from "@/shared/lib/theme";
 
 const App = () => {
   return (
     <ThemeProvider>
-      <PostPage />
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </ThemeProvider>
   );
 };

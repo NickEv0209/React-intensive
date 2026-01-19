@@ -6,7 +6,7 @@ import { CommentList } from "@/widgets/CommentList";
 import type { PostType } from "../model/types";
 
 import styles from "./PostCard.module.css";
-
+import { NavLink } from "react-router";
 interface PostCardProps {
   post: PostType;
 }
@@ -22,7 +22,9 @@ const PostCard = ({ post }: PostCardProps) => {
 
   return (
     <div className={styles.postCard}>
-      <h3 className={styles.postTitle}>{post.title}</h3>
+      <NavLink to={`/posts/${post.id}`} className={styles.postTitle}>
+        <h3>{post.title}</h3>
+      </NavLink>
       <p className={styles.postDescription}>{post.body}</p>
       <CommentList comments={comments} />
     </div>

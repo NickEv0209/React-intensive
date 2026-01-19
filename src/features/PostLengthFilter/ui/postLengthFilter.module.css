@@ -1,8 +1,10 @@
 .selectWrapper {
+  position: sticky;
+  top: 100px;
   width: 100%;
-  align-self: flex-end;
   padding: 10px 10%;
   background-color: color-mix(in srgb, var(--primary-color), #000 50%);
+  z-index: 900;
 }
 
 .select {

@@ -5,6 +5,7 @@ import { Modal } from "@/shared/ui/Modal";
 import ThemeSwitcher from "@/features/ThemeSwitcher/ui/ThemSwitcher";
 
 import styles from "./Header.module.css";
+import UserTabs from "../UserTabs/ui/UserTabs";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,7 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <h1 className={styles.headerTitle}>Список постов</h1>
+      <UserTabs userId={1}/>
       <div className={styles.buttonBlock}>
         <Button onClick={handleToggleModal}>О проекте</Button>
         <ThemeSwitcher />

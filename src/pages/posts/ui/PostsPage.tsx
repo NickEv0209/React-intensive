@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 
-import MainLayout from "@/shared/layouts/MainLayout";
 import { PostListWithLoading } from "@/widgets/PostList/PostList";
 import type { PostType } from "@/entities/post/model/types";
 import {
@@ -31,10 +30,10 @@ const PostPage = () => {
   }, [posts, filterVariant]);
 
   return (
-    <MainLayout>
+    <>
       <PostLengthFilter value={filterVariant} onChange={setFilterVariant} />
       <PostListWithLoading isLoading={isLoading} posts={filteredPosts} />
-    </MainLayout>
+    </>
   );
 };
 
