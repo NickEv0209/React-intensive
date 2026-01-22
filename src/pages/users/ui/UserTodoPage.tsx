@@ -1,13 +1,13 @@
 import { useGetTodosQuery } from "@/entities/todo/api/todosApi";
+import type { TodoType } from "@/entities/todo/model/types";
+import { TodoListWithLoading } from "@/widgets/TodoList";
 
 const UserTodoPage = () => {
   const { data: todos, isLoading } = useGetTodosQuery(1);
 
-  if (isLoading) return <h3>Loading...</h3>;
-
-  return todos?.map((todo) => {
-    return <h3 key={todo.id}>{todo.title}</h3>;
-  });
+  return (
+    <TodoListWithLoading isLoading={isLoading} todos={todos as TodoType[]} />
+  );
 };
 
 export default UserTodoPage;
