@@ -1,4 +1,8 @@
-import { createContext } from "react";
+import {
+  createContext,
+  type MouseEventHandler,
+  type PropsWithChildren,
+} from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./Modal.module.css";
@@ -20,16 +24,23 @@ export const useModalContext = () => {
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: React.ReactNode;
 }
 
-export const ModalComponent = ({ isOpen, onClose, children }: ModalProps) => {
+export const ModalComponent = ({
+  isOpen,
+  onClose,
+  children,
+}: PropsWithChildren<ModalProps>) => {
+  const stopPropagation: MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
+  };
+
   if (!isOpen) return null;
 
   const content = (
     <ModalContext.Provider value={{ onClose }}>
       <div className={styles.backLayer} onClick={onClose}>
-        <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+        <div className={styles.modal} onClick={stopPropagation}>
           {children}
         </div>
       </div>

@@ -9,10 +9,10 @@ interface PostLengthFilterProps {
   onChange: (value: PostLengthVariant) => void;
 }
 
-export const PostLengthFilter: React.FC<PostLengthFilterProps> = ({
+export const PostLengthFilter = ({
   value,
   onChange,
-}) => {
+}: PostLengthFilterProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(e.target.value as PostLengthVariant);
   };
