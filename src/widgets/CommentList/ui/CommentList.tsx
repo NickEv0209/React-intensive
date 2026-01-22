@@ -3,6 +3,7 @@ import { useCallback, useState } from "react";
 import Button from "@/shared/ui/Button/Button";
 
 import styles from "./CommentList.module.css";
+import { ItemList } from "@/shared/ui/ItemList/ItemList";
 
 export interface Comment {
   id: number;
@@ -14,7 +15,7 @@ export interface Comment {
 
 export interface CommentsListProps {
   comments: Comment[];
-  isLoading: boolean
+  isLoading: boolean;
 }
 
 export const CommentList = ({ comments, isLoading }: CommentsListProps) => {
@@ -24,7 +25,7 @@ export const CommentList = ({ comments, isLoading }: CommentsListProps) => {
     setIsExpanded((prev) => !prev);
   }, []);
 
-  if(isLoading) return <h3>Loading...</h3>
+  if (isLoading) return <h3>Loading...</h3>;
 
   if (comments.length === 0) {
     return <div className={styles.empty}>Комментариев пока нет</div>;
@@ -41,12 +42,15 @@ export const CommentList = ({ comments, isLoading }: CommentsListProps) => {
 
       {isExpanded && (
         <ul className={styles.list}>
-          {comments.map((comment) => (
-            <li key={comment.id} className={styles.item}>
-              <span className={styles.author}>{comment.email}:</span>
-              <p className={styles.text}>{comment.body}</p>
-            </li>
-          ))}
+          <ItemList
+            items={comments}
+            renderItem={(comment) => (
+              <li key={comment.id} className={styles.item}>
+                <span className={styles.author}>{comment.email}:</span>
+                <p className={styles.text}>{comment.body}</p>
+              </li>
+            )}
+          />
         </ul>
       )}
     </div>
