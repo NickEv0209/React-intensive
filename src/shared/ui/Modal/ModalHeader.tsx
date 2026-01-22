@@ -1,6 +1,12 @@
+import type { PropsWithChildren } from "react";
+
 import styles from "./Modal.module.css";
 
-export const ModalHeader: React.FC<{ title: string }> = ({ title }) => {
+interface ModalHeaderProps {
+  title: string;
+}
+
+export const ModalHeader = ({ title }: PropsWithChildren<ModalHeaderProps>) => {
   return (
     <div className={styles.header}>
       <h3 className={styles.modalTitle}>{title}</h3>

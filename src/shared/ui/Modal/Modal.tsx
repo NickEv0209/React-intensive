@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, type PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./Modal.module.css";
@@ -20,10 +20,13 @@ export const useModalContext = () => {
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  children: React.ReactNode;
 }
 
-export const ModalComponent = ({ isOpen, onClose, children }: ModalProps) => {
+export const ModalComponent = ({
+  isOpen,
+  onClose,
+  children,
+}: PropsWithChildren<ModalProps>) => {
   if (!isOpen) return null;
 
   const content = (
