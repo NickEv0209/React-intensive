@@ -2,17 +2,17 @@ import { useParams } from "react-router-dom";
 
 import type { PostParams } from "@/App/providers/router/ui/AppRouter";
 import PostCard from "@/entities/post/ui/PostCard";
-import { usePost } from "@/features/PostList/model/hooks/usePosts";
 
 import styles from "./PostDetailsPage.module.css";
+import { useGetPostByIdQuery } from "@/entities/post/api/postsApi";
 
 const PostDetailsPage = () => {
   const { id } = useParams<PostParams>();
 
-  const { post, isLoading, error } = usePost(id || "");
+  const {data: post, isLoading, isError} = useGetPostByIdQuery(Number(id))
 
   if (isLoading) return <p>Загрузка поста...</p>;
-  if (error) return <p>Ошибка при загрузке: {error}</p>;
+  if (isError) return <p>Ошибка при загрузке</p>;
   if (!post) return <p>Пост не найден.</p>;
 
   return (
