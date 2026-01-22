@@ -2,12 +2,9 @@ import Header from "@/widgets/LayoutHeader/Header";
 import Footer from "@/widgets/LayoutFooter/Footer";
 
 import styles from "./MainLayout.module.css";
+import type { PropsWithChildren } from "react";
 
-interface MainLayoutProps {
-  children: React.ReactNode;
-}
-
-const MainLayout = ({ children }: MainLayoutProps) => {
+const MainLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className={styles.mainLayout}>
       <Header />
