@@ -1,24 +1,18 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-
 import { CommentList } from "@/widgets/CommentList";
 
 import type { PostType } from "../model/types";
 
 import styles from "./PostCard.module.css";
 import { NavLink } from "react-router";
+import { useGetCommentsQuery } from "@/entities/comment/api/commentsApi";
+import type { CommentType } from "@/entities/comment/model/types";
+
 interface PostCardProps {
   post: PostType;
 }
 
 const PostCard = ({ post }: PostCardProps) => {
-  const [comments, setComments] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(`/api/posts/${post.id}/comments`)
-      .then((res) => setComments(res.data));
-  }, []);
+  const {data, isLoading} = useGetCommentsQuery(post.id)
 
   return (
     <div className={styles.postCard}>
@@ -26,7 +20,7 @@ const PostCard = ({ post }: PostCardProps) => {
         <h3>{post.title}</h3>
       </NavLink>
       <p className={styles.postDescription}>{post.body}</p>
-      <CommentList comments={comments} />
+      <CommentList comments={data as CommentType[]} isLoading={isLoading}/>
     </div>
   );
 };

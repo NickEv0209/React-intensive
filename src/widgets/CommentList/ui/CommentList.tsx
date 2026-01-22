@@ -14,14 +14,17 @@ export interface Comment {
 
 export interface CommentsListProps {
   comments: Comment[];
+  isLoading: boolean
 }
 
-export const CommentList = ({ comments }: CommentsListProps) => {
+export const CommentList = ({ comments, isLoading }: CommentsListProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleDisplay = useCallback(() => {
     setIsExpanded((prev) => !prev);
   }, []);
+
+  if(isLoading) return <h3>Loading...</h3>
 
   if (comments.length === 0) {
     return <div className={styles.empty}>Комментариев пока нет</div>;

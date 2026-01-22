@@ -1,0 +1,20 @@
+import { fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi } from "@reduxjs/toolkit/query/react";
+
+import type { AlbumType } from "../model/types";
+
+export const albumsApi = createApi({
+  reducerPath: "/albumsApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "/api",
+  }),
+  tagTypes: ['Albums'],
+  endpoints: (builder) => ({
+    getAlbums: builder.query<AlbumType[], number>({
+      query: (userId) => `/albums?userId=${userId}`,
+      providesTags: ['Albums']
+    }),
+  }),
+});
+
+export const { useGetAlbumsQuery } = albumsApi;
