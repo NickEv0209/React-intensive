@@ -1,13 +1,13 @@
 import { useGetAlbumsQuery } from "@/entities/album/api/albumsApi";
+import type { AlbumType } from "@/entities/album/model/types";
+import { AlbumsWithLoading } from "@/widgets/AlbumList";
 
 const UserAlbumsPage = () => {
   const { data: albums, isLoading } = useGetAlbumsQuery(1);
 
-  if (isLoading) return <h3>Loading...</h3>;
-
-  return albums?.map((album) => {
-    return <h3 key={album.id}>{album.title}</h3>;
-  });
+  return (
+    <AlbumsWithLoading isLoading={isLoading} albums={albums as AlbumType[]} />
+  );
 };
 
 export default UserAlbumsPage;
