@@ -8,9 +8,11 @@ export const usersApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "/api",
   }),
+  tagTypes: ['Users'],
   endpoints: (builder) => ({
     getUsers: builder.query<UserType[], void>({
       query: () => "/users",
+      providesTags: ['Users']
     }),
   }),
 });

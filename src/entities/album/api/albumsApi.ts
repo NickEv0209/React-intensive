@@ -8,9 +8,11 @@ export const albumsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "/api",
   }),
+  tagTypes: ['Albums'],
   endpoints: (builder) => ({
     getAlbums: builder.query<AlbumType[], number>({
       query: (userId) => `/albums?userId=${userId}`,
+      providesTags: ['Albums']
     }),
   }),
 });

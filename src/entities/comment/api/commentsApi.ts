@@ -7,9 +7,11 @@ export const commentsApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "/api",
   }),
+  tagTypes: ['Comments'],
   endpoints: (builder) => ({
     getComments: builder.query<CommentType[], number>({
       query: (postId) => `/comments?postId=${postId}`,
+      providesTags: ['Comments']
     }),
   }),
 });

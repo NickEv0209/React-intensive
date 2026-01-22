@@ -7,9 +7,11 @@ export const todosApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "/api",
   }),
+  tagTypes: ['Todos'],
   endpoints: (builder) => ({
     getTodos: builder.query<TodoType[], number>({
       query: (userId) => `/todos?userId=${userId}`,
+      providesTags: ['Todos']
     }),
   }),
 });
